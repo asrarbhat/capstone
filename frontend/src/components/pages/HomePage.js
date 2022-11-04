@@ -1,7 +1,10 @@
 import React from 'react'
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 //import { Link } from 'react-router-dom'
 import { Table } from 'semantic-ui-react'
+import FundTransferPage from './FundTransfer';
+import NewFD from './NewFD';
 export default function HomePage() {
     
     let accountInfo = (
@@ -47,11 +50,28 @@ export default function HomePage() {
             </Table.Body>
         </Table>
     );
-    return (
-        <div className='account'>
-            <h3>My Bank Account</h3>
-            <div id='accountInfo' >{ accountInfo }</div>
-            <div id='accountTransactions' >{ accountTransactions }</div>
-        </div>
+    return (        
+        <div className="App">
+            <Tabs className="Tabs">
+                <TabList>
+                    <Tab>Dashboard</Tab>
+                    <Tab>Fund Transfer</Tab>
+                    <Tab>Create FD</Tab>
+                </TabList>
+                <TabPanel>
+                <div className='account'>
+                    <h3>My Bank Account</h3>
+                    <div id='accountInfo' >{ accountInfo }</div>
+                    <div id='accountTransactions' >{ accountTransactions }</div>
+                </div>
+                </TabPanel>
+                <TabPanel>
+                    <FundTransferPage/>
+                </TabPanel>
+                <TabPanel>
+                    <NewFD/>
+                </TabPanel>
+            </Tabs>
+   </div>
     );
 }

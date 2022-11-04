@@ -9,7 +9,7 @@
 
 body {
     margin: 0 auto;
-    
+
 }
 
 .m-5-auto {
@@ -64,12 +64,12 @@ body {
 }
 
 #reg_btn:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 #reg_btn:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
 
 /***    Login Page     ***/
@@ -99,7 +99,7 @@ form label {
 }
 
 input {
-    
+
     width: 100%;
     padding-left: 10px;
     height: 2rem;
@@ -147,9 +147,11 @@ form span {
 .home-page-title {
     color: #222
 }
+
 h3 {
     text-align: center;
 }
+
 #accountInfo {
     border: solid black;
     width: 50%;
@@ -157,10 +159,59 @@ h3 {
     margin: auto;
     text-align: center;
 }
+
 #accountTransactions {
     border: solid black;
     width: 100%;
     align-items: center;
     margin-top: 2rem;
+    text-align: center;
+}
+
+.App {
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    align-items: top;
+    margin-top: 10px;
+    margin-left: 1em;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.Tabs {
+    width: 65%;
+}
+
+
+.react-tabs__tab-list {
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0px;
+}
+
+.react-tabs__tab {
+    width: 50%;
+    list-style: none;
+    text-align: center;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+    background: gray;
+    outline: 0;
+    margin-bottom: 5px;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+.react-tabs__tab-panel {
+    display: none;
+}
+
+.react-tabs__tab-panel--selected {
+    display: block;
     text-align: center;
 }
