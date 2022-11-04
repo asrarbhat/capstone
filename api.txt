@@ -6,3 +6,35 @@ https://localhsot:8080/registration
   post: data for registration
   return: sucess or failed or user already exists.
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//by asrar:
+    /login
+    /registration
+    /fd
+    /transfer
+    /checkbalance
+    /requestcheckbook
+    /atmpinchange
+    /forgotpassword
+    /last5transactions
+    
