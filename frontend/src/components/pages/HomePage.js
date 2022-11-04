@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Input, Label, Table } from 'semantic-ui-react'
+
+//import { Link } from 'react-router-dom'
+import { Table } from 'semantic-ui-react'
 export default function HomePage() {
+    
     let accountInfo = (
         <Table stripped>
             <Table.Header>
