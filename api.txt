@@ -1,0 +1,40 @@
+https://localhost:8080/login 
+    post request: login data => email and password{email,password}
+    return : account data if valid and a null if invalid.{accountNumber,balance}
+
+https://localhsot:8080/registration
+  post: data for registration
+  return: sucess or failed or user already exists.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//by asrar:
+    /login
+    /registration
+    /fd
+    /transfer
+    /checkbalance
+    /requestcheckbook
+    /atmpinchange
+    /forgotpassword
+    /last5transactions
+    

@@ -1,0 +1,217 @@
+/***    General     ***/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-image: url("/src/assets/images/BgImage.jpg");
+}
+
+body {
+    margin: 0 auto;
+
+}
+
+.m-5-auto {
+    margin: 1rem auto
+}
+
+.primary-button {
+    margin-top: 5rem;
+    margin-right: 1rem;
+    padding: .6rem;
+    width: 10rem;
+    background: #222;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all .5s;
+    cursor: pointer;
+    text-transform: capitalize
+}
+
+/***    Landing Page     ***/
+.main-title,
+.main-para {
+    color: #000000
+}
+
+.main-title {
+    padding-top: 10rem;
+    font-size: 4rem;
+    font-family: 'Calibiri', cursive;
+    text-transform: uppercase
+}
+
+.main-para {
+    font-size: 2.5rem;
+    text-Transform: capitalize
+}
+
+#reg_btn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#reg_btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#reg_btn:hover span {
+    padding-right: 25px;
+}
+
+#reg_btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/***    Login Page     ***/
+h2 {
+    font-weight: 300
+}
+
+form {
+    width: 40%;
+    display: inline-block;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 1rem;
+    margin: 1rem 0 1rem 0
+}
+
+form label {
+    float: left;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.right-label {
+    float: right;
+    cursor: pointer
+}
+
+input {
+
+    width: 100%;
+    padding-left: 10px;
+    height: 2rem;
+    border-radius: 5px;
+    outline: none;
+    border: solid 0.1px;
+}
+
+#sub_btn {
+    display: block;
+    width: 100%;
+    padding: .3rem;
+    border: none;
+    background: #222;
+    color: #fff;
+    border-radius: 3px;
+}
+
+#sub_btn:hover {
+    background: #333;
+    transition: all .5s
+}
+
+footer p {
+    margin: 0;
+    font-size: .9rem
+}
+
+/***    Register Page     ***/
+
+#checkbox {
+    width: 1rem;
+    height: auto;
+}
+
+form span {
+    font-size: .8rem
+}
+
+#reset_pass_lbl {
+    float: left
+}
+
+/***    Home Page     ***/
+.home-page-title {
+    color: #222
+}
+
+h3 {
+    text-align: center;
+}
+
+#accountInfo {
+    border: solid black;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+
+#accountTransactions {
+    border: solid black;
+    width: 100%;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.App {
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    align-items: top;
+    margin-top: 10px;
+    margin-left: 1em;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.Tabs {
+    width: 65%;
+}
+
+
+.react-tabs__tab-list {
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0px;
+}
+
+.react-tabs__tab {
+    width: 50%;
+    list-style: none;
+    text-align: center;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+    background: gray;
+    outline: 0;
+    margin-bottom: 5px;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+.react-tabs__tab-panel {
+    display: none;
+}
+
+.react-tabs__tab-panel--selected {
+    display: block;
+    text-align: center;
+}
