@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Table } from 'semantic-ui-react'
 import FundTransferPage from './FundTransfer';
 import NewFD from './NewFD';
+import { Link }from 'react-router-dom'
 export default function HomePage() {
     
     let accountInfo = (
@@ -57,6 +58,7 @@ export default function HomePage() {
                     <Tab>Dashboard</Tab>
                     <Tab>Fund Transfer</Tab>
                     <Tab>Create FD</Tab>
+                    <Tab>Logout</Tab>
                 </TabList>
                 <TabPanel>
                 <div className='account'>
@@ -70,6 +72,9 @@ export default function HomePage() {
                 </TabPanel>
                 <TabPanel>
                     <NewFD/>
+                </TabPanel>
+                <TabPanel>
+                <Link to="/login">LOGOUT</Link>
                 </TabPanel>
             </Tabs>
    </div>
