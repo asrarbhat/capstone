@@ -1,13 +1,21 @@
 package com.capstone.bank.controller;
 
 import com.capstone.bank.model.Account;
+import com.capstone.bank.model.Transactions;
 import com.capstone.bank.service.AccountService;
+import com.capstone.bank.service.TransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class BankController {
     private final AccountService accountService;
+
+    @Autowired
+    private TransactionService transactionService;
 
     public BankController(AccountService accountService) {
         this.accountService = accountService;
@@ -23,11 +31,15 @@ public class BankController {
     public Account createAccount(@RequestBody Account account) {
         return accountService.create(account);
     }
+
     @PostMapping("/transaction")
-    public Boolean transaction() {
-        //TODO
-        //make the transaction in database.
-        return null;
+    public ResponseEntity<?> transaction(@RequestBody Transactions transactions) {
+        Transactions t1 = transactionService.addTransations(transactions);
+        return new ResponseEntity<Transactions>(t1, HttpStatus.CREATED);
+    }
+    @GetMapping ("/transaction/{accountNumber}")
+    public Iterable<Transactions> getTransactions(@PathVariable String accountNumber) {
+        return transactionService.findAllTransactions(accountNumber);
     }
 
     @PutMapping("/update")

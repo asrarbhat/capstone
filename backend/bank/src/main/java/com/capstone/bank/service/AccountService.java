@@ -19,11 +19,10 @@ public class AccountService {
 
     public Account create(Account acc) {
         Account acc1=bankRepository.findByUsername(acc.getUsername());
-        if (acc1 ==null)
-            //TODO
-            //generate 10 digit account number
-            //book.setAccountNumber();
+        if (acc1 ==null){
+            acc.setAccountNumber(Integer.toString(2097662040+bankRepository.findAll().size()+1));
             return bankRepository.save(acc);
+            }
         return null;
     }
 
