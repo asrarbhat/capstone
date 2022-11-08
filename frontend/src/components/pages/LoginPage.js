@@ -5,7 +5,7 @@ import axios from 'axios'
 import '../../App.css'
 
 export default function SignInPage(props) {
-    const url="https://jsonplaceholder.typicode.com"
+    const url="https://localhost:8080"
     const history=useHistory();
     const[logindata, setlogindata]=useState({
         username:"",
@@ -20,7 +20,7 @@ export default function SignInPage(props) {
     function submit(e) {
         e.preventDefault();
         let login = async function (username, password) {
-            let r = await axios.get(url)
+            let r = await axios.post(url + "get", { "username": username, "password": password })
             if(r.data==null){
                 alert("Invalid Credentials")
             }

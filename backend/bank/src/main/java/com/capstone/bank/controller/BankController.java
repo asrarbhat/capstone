@@ -21,7 +21,7 @@ public class BankController {
         this.accountService = accountService;
     }
 
-    @GetMapping("/get")
+    @PostMapping("/get")
     public Account getAccount(@RequestBody Account account) {
         System.out.println(account.getUsername()+" "+account.getPassword());
         return  accountService.getAccount(account);

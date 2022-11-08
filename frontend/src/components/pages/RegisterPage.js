@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Axios from 'axios'
+import { Link, useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 import '../../App.css'
 
-export default function SignUpPage() {
-    const url=""
+export default function SignUpPage(props) {
+    const url="http://localhost:8080/"
+    const history = useHistory();
     const[data, setData]=useState({
         first_name:"",
         middle_name:"",
@@ -22,22 +23,28 @@ export default function SignUpPage() {
     }
     function submit(e) {
         e.preventDefault();
-        Axios.post(url,{
-            first_name:data.first_name,
-            middle_name:data.middle_name,
-            last_name:data.last_name,
-            email:data.email,
-            password:data.password,
-            acctype:data.acctype
-        })
-        .then(res=>{console.log(res.data)})
+        let register = async function (first_name,middle_name,last_name,email,password,acctype) {
+            let r = await axios.post(url + "registration", 
+            { "firstName":first_name,"middleName":middle_name,"lastName":last_name,
+            "email":email,"password":password,"acctype":acctype})
+            if(r.data==null){
+                alert("User already exists")
+            }
+            // else{
+            //     alert("User registered successfully")
+            // }
+           console.log(r.data);
+        }
+        register(data.first_name,data.middle_name,data.last_name,data.email,data.password,data.acctype)
+        // props.state["username"]=logindata.username
+     
+        history.push('/login')
     }
-
     return (
         <div className="text-center m-5-auto">
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
-            <form action="/login">
+            <form onSubmit={submit}>
                 <p>
                     <label>First Name</label>
                     <input type="text" onChange={(e)=>handle(e)} value={data.first_name} id="first_name" required />

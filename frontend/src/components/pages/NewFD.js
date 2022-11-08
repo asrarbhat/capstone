@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 
 import '../../App.css'
 
-export default function NewFD() {
+export default function NewFD(props) {
     const url=""
     const[fddata, setfddata]=useState({
         amount:""
@@ -16,10 +16,16 @@ export default function NewFD() {
     }
     function submit(e) {
         e.preventDefault();
-        Axios.post(url,{
-            amount:fddata.amount,
-        })
-        .then(res=>{console.log(res.fddata)})
+        let fd = async function (acc_number, amount) {
+            let r = await axios.get(url)
+            if(r.data==null){
+                alert("Error")
+            }
+            alert("Fd created Successfully")
+        }
+        fd(fddata.acc_number,fddata.amount)
+        props.state["balance"]=props.state["balance"]-fddata.amount
+        console.log(props.state);
     }
 
     return (
@@ -49,7 +55,7 @@ export default function NewFD() {
                 </p>
                 <p>
                     <label>Amount</label>
-                    <input type="text" onChange={(e)=>handle(e)}  value={fddata.transfer_amount} id="etransfer_amount" required />
+                    <input type="text" onChange={(e)=>handle(e)}  value={fddata.amount} id="amount" required />
                 </p>
                 <p>
                     <input type="checkbox" name="checkbox" id="checkbox" required />I accept all the <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms and conditions of service</a>.
