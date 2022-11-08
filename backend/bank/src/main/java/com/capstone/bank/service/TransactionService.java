@@ -17,8 +17,10 @@ public class TransactionService {
 
     public Transactions addTransations(Transactions transactions)
     {
-       //Account acc = bankRepository.findByAccountNumber(transactions.getAccountNumber());
-       //acc.setBalance(acc.getBalance() - transactions.getTransferAmount());
+       Account acc = bankRepository.findByAccountNumber(transactions.getAccountNumber());
+       acc.setBalance(acc.getBalance() - transactions.getTransferAmount());
+       Account acc1 = bankRepository.findByAccountNumber(transactions.getDestAccountNumber());
+       acc1.setBalance(acc1.getBalance() + transactions.getTransferAmount());
     return transactionRepository.save(transactions);
     }
 

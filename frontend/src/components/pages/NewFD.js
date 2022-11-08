@@ -4,37 +4,42 @@ import axios from 'axios'
 import '../../App.css'
 
 export default function NewFD(props) {
-    const url=""
-    const[fddata, setfddata]=useState({
-        amount:""
+    const url = ""
+    const [fddata, setfddata] = useState({
+        amount: ""
     })
-    function handle(e)
-    {
-        const newfddata={...fddata}
-        newfddata[e.target.id]=e.target.value
+    function handle(e) {
+        const newfddata = { ...fddata }
+        newfddata[e.target.id] = e.target.value
         setfddata(newfddata)
     }
     function submit(e) {
         e.preventDefault();
         let fd = async function (acc_number, amount) {
-            let r = await axios.get(url)
-            if(r.data==null){
-                alert("Error")
+            let data = { ...props.state }
+            console.log("hi");
+            console.log(props.state)
+            console.log(amount)
+            if (amount > data.balance)
+                alert("insufficient balance to create such an FD")
+            else {
+                data.balance -= amount
+                data.fdBalance += amount
+                props.handleset(data)
+                axios.put("http://localhost:8080/update", data)
+                alert("Fd created Successfully")
             }
-            alert("Fd created Successfully")
         }
-        fd(fddata.acc_number,fddata.amount)
-        props.state["balance"]=props.state["balance"]-fddata.amount
-        console.log(props.state);
+        fd(fddata.acc_number, fddata.amount)
     }
-
+    console.log(props.state)
     return (
         <div className="text-center m-5-auto">
             <h5>Open your new FD</h5>
-            <form action="/home">
+            <form onSubmit={submit}>
                 <p>
                     <label>From Account</label>
-                    <input type="text" onChange={(e)=>handle(e)} placeholder="Your Account number" value={fddata.acc_number} id="account_number" required />
+                    <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={fddata.acc_number} id="account_number" required />
                 </p>
                 <p>
                     <label>FD Product Type</label>
@@ -55,7 +60,7 @@ export default function NewFD(props) {
                 </p>
                 <p>
                     <label>Amount</label>
-                    <input type="text" onChange={(e)=>handle(e)}  value={fddata.amount} id="amount" required />
+                    <input type="text" onChange={(e) => handle(e)} value={fddata.amount} id="amount" required />
                 </p>
                 <p>
                     <input type="checkbox" name="checkbox" id="checkbox" required />I accept all the <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms and conditions of service</a>.

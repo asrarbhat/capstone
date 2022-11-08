@@ -5,40 +5,41 @@ import axios from 'axios'
 import '../../App.css'
 
 export default function SignUpPage(props) {
-    const url="http://localhost:8080/"
+    const url = "http://localhost:8080/"
     const history = useHistory();
-    const[data, setData]=useState({
-        first_name:"",
-        middle_name:"",
-        last_name:"",
-        email:"",
-        password:"",
-        acctype:""
+    const [data, setData] = useState({
+        first_name: "",
+        middle_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+        acctype: ""
     })
-    function handle(e)
-    {
-        const newdata={...data}
-        newdata[e.target.id]=e.target.value
+    function handle(e) {
+        const newdata = { ...data }
+        newdata[e.target.id] = e.target.value
         setData(newdata)
     }
     function submit(e) {
         e.preventDefault();
-        let register = async function (first_name,middle_name,last_name,email,password,acctype) {
-            let r = await axios.post(url + "registration", 
-            { "firstName":first_name,"middleName":middle_name,"lastName":last_name,
-            "email":email,"password":password,"acctype":acctype})
-            if(r.data==null){
+        let register = async function (first_name, middle_name, last_name, email, password, acctype) {
+            let r = await axios.post(url + "registration",
+                {
+                    "firstName": first_name, "middleName": middle_name, "lastName": last_name,
+                    "username": email, "password": password
+                })
+            if (!r.data) {
                 alert("User already exists")
             }
-            // else{
-            //     alert("User registered successfully")
-            // }
-           console.log(r.data);
+            else {
+                console.log(r.data);
+                history.push('/login')
+            }
         }
-        register(data.first_name,data.middle_name,data.last_name,data.email,data.password,data.acctype)
+        register(data.first_name, data.middle_name, data.last_name, data.email, data.password, data.acctype)
         // props.state["username"]=logindata.username
-     
-        history.push('/login')
+
+
     }
     return (
         <div className="text-center m-5-auto">
@@ -47,23 +48,23 @@ export default function SignUpPage(props) {
             <form onSubmit={submit}>
                 <p>
                     <label>First Name</label>
-                    <input type="text" onChange={(e)=>handle(e)} value={data.first_name} id="first_name" required />
+                    <input type="text" onChange={(e) => handle(e)} value={data.first_name} id="first_name" required />
                 </p>
                 <p>
                     <label>Middle Name</label>
-                    <input type="text" onChange={(e)=>handle(e)} value={data.middle_name} id="middle_name" />
+                    <input type="text" onChange={(e) => handle(e)} value={data.middle_name} id="middle_name" />
                 </p>
                 <p>
                     <label>Last Name</label>
-                    <input type="text" onChange={(e)=>handle(e)}  value={data.last_name} id="last_name" required />
+                    <input type="text" onChange={(e) => handle(e)} value={data.last_name} id="last_name" required />
                 </p>
                 <p>
                     <label>Email address</label>
-                    <input type="email" onChange={(e)=>handle(e)}  value={data.email} id="email" required />
+                    <input type="email" onChange={(e) => handle(e)} value={data.email} id="email" required />
                 </p>
                 <p>
                     <label>Password</label>
-                    <input type="password" onChange={(e)=>handle(e)}  value={data.password} id="password" required />
+                    <input type="password" onChange={(e) => handle(e)} value={data.password} id="password" required />
                 </p>
                 <p>
                     <label>Security Question</label>

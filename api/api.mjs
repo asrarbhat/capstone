@@ -6,11 +6,11 @@ let login = async function (username, password) {
 }
 let registration = async function (username, password) {
     let r = await axios.post(url + "registration", { "username": username, "password": password })
-    console.log(r.data);
+    console.log(r.data.username);
 }
 let update = async function (data) {
     let r = await axios.post(url + "update", data)
-    console.log(r.data);
+
 }
 
-login("66", "88");
+login("66", "8");

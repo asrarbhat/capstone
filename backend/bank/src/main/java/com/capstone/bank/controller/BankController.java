@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin("*")
 public class BankController {
     private final AccountService accountService;
 
@@ -34,6 +35,7 @@ public class BankController {
 
     @PostMapping("/transaction")
     public ResponseEntity<?> transaction(@RequestBody Transactions transactions) {
+        System.out.println(transactions.getAccountNumber()+" "+transactions.getDestAccountNumber()+" "+transactions.getTransferAmount());
         Transactions t1 = transactionService.addTransations(transactions);
         return new ResponseEntity<Transactions>(t1, HttpStatus.CREATED);
     }
