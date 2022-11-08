@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { Link }from 'react-router-dom'
-import Axios from 'axios'
+import { Link, useHistory }from 'react-router-dom'
+import axios from 'axios'
 
 import '../../App.css'
 
-export default function SignInPage() {
-    const url=""
+export default function SignInPage(props) {
+    const url="https://jsonplaceholder.typicode.com"
+    const history=useHistory();
     const[logindata, setlogindata]=useState({
-        email:"",
+        username:"",
         password:""
     })
     function handle(e)
@@ -18,19 +19,24 @@ export default function SignInPage() {
     }
     function submit(e) {
         e.preventDefault();
-        Axios.post(url,{
-            email:logindata.email,
-            password:logindata.password,
-        })
-        .then(res=>{console.log(res.logindata)})
+        let login = async function (username, password) {
+            let r = await axios.get(url)
+            if(r.data==null){
+                alert("Invalid Credentials")
+            }
+        }
+        login(logindata.email,logindata.password)
+        props.state["username"]=logindata.username
+        console.log(props.state);
+        history.push('/home')
     }
     return (
         <div className="text-center m-5-auto">
             <h2>Sign in to us</h2>
-            <form action="/home">
+            <form onSubmit={submit}>
                 <p>
-                    <label>Email address</label><br/>
-                    <input type="email" onChange={(e)=>handle(e)} id="email" required />
+                    <label>UserName/Email address</label><br/>
+                    <input type="text" onChange={(e)=>handle(e)} id="username" required />
                 </p>
                 <p>
                     <label>Password</label>

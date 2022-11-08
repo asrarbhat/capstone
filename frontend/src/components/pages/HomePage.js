@@ -6,13 +6,13 @@ import { Table } from 'semantic-ui-react'
 import FundTransferPage from './FundTransfer';
 import NewFD from './NewFD';
 import { Link }from 'react-router-dom'
-export default function HomePage() {
+export default function HomePage(props) {
     
     let accountInfo = (
         <Table stripped>
             <Table.Header>
                 <Table.Row>
-                    <Table.HeaderCell>Name</Table.HeaderCell>
+                    <Table.HeaderCell>UserName</Table.HeaderCell>
                     <Table.HeaderCell>AccountId</Table.HeaderCell>
                     <Table.HeaderCell>Account Balance</Table.HeaderCell>
                 </Table.Row>
@@ -20,9 +20,9 @@ export default function HomePage() {
 
           <Table.Body>
                 <Table.Row>
-                    <Table.Cell>Karthik</Table.Cell>
-                    <Table.Cell>5625</Table.Cell>
-                    <Table.Cell>100000</Table.Cell>
+                    <Table.Cell>{props.state.username}</Table.Cell>
+                    <Table.Cell>{props.state.accountNumber}</Table.Cell>
+                    <Table.Cell>{props.state.balance}</Table.Cell>
                 </Table.Row>
             </Table.Body>
         </Table>

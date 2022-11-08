@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import LoginPage from './components/pages/LoginPage'
@@ -9,21 +9,33 @@ import NewFD from './components/pages/NewFD'
 
 import './App.css'
 
-export default function App() {
+export default class App extends Component {
+    state={
+        username:"",
+        password:"",
+        accountNumber:"",
+        firstName:"",
+        middleName:"",
+        lastName:"",
+        balance:0,
+        fdBalance:0,
+    }
+    render() {
     return (
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={ LoginPage} />
-                    <Route path="/login" component={ LoginPage } />
-                    <Route path="/register" component={ RegisterPage } />
-                    <Route path="/home" component={ HomePage } />
-                    <Route path="/ft" component={ FundTransferPage } />
-                    <Route path="/fd" component={ NewFD } />
+                    <Route exact path="/" render={ (props)=><LoginPage state={this.state} set={this.setState}/>}/>
+                    <Route path="/login" render={ (props)=><LoginPage state={this.state} set={this.setState}/>} />
+                    <Route path="/register" render={ (props)=><RegisterPage state={this.state} set={this.setState}/>} />
+                    <Route path="/home" render={ (props)=><HomePage state={this.state} set={this.setState}/>} />
+                    <Route path="/ft" render={ (props)=><FundTransferPage state={this.state} set={this.setState}/>}/>
+                    <Route path="/fd" render={ (props)=><NewFD state={this.state} set={this.setState}/>}/>
                 </Switch>
             </div>
         </Router>
     )
+    }
 }
 
 
