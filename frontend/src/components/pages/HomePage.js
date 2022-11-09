@@ -13,9 +13,9 @@ export default class HomePage extends Component {
             <Table stripped>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>UserName</Table.HeaderCell>
-                        <Table.HeaderCell>AccountId</Table.HeaderCell>
-                        <Table.HeaderCell>Account Balance</Table.HeaderCell>
+                        <Table.HeaderCell>username</Table.HeaderCell>
+                        <Table.HeaderCell>account number</Table.HeaderCell>
+                        <Table.HeaderCell>savings balance</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -34,8 +34,8 @@ export default class HomePage extends Component {
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>TransactionId</Table.HeaderCell>
-                        <Table.HeaderCell>Date</Table.HeaderCell>
-                        <Table.HeaderCell>Type</Table.HeaderCell>
+                        <Table.HeaderCell>sender</Table.HeaderCell>
+                        <Table.HeaderCell>receiver</Table.HeaderCell>
                         <Table.HeaderCell>Amount</Table.HeaderCell>
                     </Table.Row>
 

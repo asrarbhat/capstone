@@ -58,7 +58,7 @@ export default function FundTransferPage(props) {
                 </p>
                 <p>
                     <label>Benificiary IFSC Code</label>
-                    <input type="text" onChange={(e) => handle(e)} value={ftdata.ben_ifsc} id="ben_ifsc" required />
+                    <input type="text" onChange={(e) => handle(e)} value={ftdata.ben_ifsc} id="ben_ifsc" />
                 </p>
                 <p>
                     <label>Benificiary Account Type</label>
@@ -73,7 +73,7 @@ export default function FundTransferPage(props) {
                 </p>
                 <p>
                     <label>Remarks</label>
-                    <input type="text" name="remarks" required />
+                    <input type="text" name="remarks" />
                 </p>
                 <p>
                     <input type="checkbox" name="checkbox" id="checkbox" required />I accept all the <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms and conditions of service</a>.

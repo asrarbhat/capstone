@@ -60,7 +60,7 @@ export default function SignUpPage(props) {
                 </p>
                 <p>
                     <label>Email address</label>
-                    <input type="email" onChange={(e) => handle(e)} value={data.email} id="email" required />
+                    <input type="text" onChange={(e) => handle(e)} value={data.email} id="email" required />
                 </p>
                 <p>
                     <label>Password</label>

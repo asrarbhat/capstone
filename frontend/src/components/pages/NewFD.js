@@ -39,7 +39,7 @@ export default function NewFD(props) {
             <form onSubmit={submit}>
                 <p>
                     <label>From Account</label>
-                    <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={fddata.acc_number} id="account_number" required />
+                    <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={fddata.acc_number} id="account_number" />
                 </p>
                 <p>
                     <label>FD Product Type</label>

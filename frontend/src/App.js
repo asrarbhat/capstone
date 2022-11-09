@@ -32,7 +32,7 @@ export default class App extends Component {
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path="/" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} />} />
+                        <Route exact path="/" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />
                         <Route path="/login" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />
                         <Route path="/register" render={(props) => <RegisterPage state={this.state.other} handleset={this.handleUpdate} />} />
                         <Route path="/home" render={(props) => <HomePage state={this.state.other} l={this.state.trans} trans={this.handler} handleset={this.handleUpdate} />} />
