@@ -16,11 +16,14 @@ export default class App extends Component {
         "trans": []
     }
     handleUpdate = (d) => {
+        this.state.other.balance = d.balance;
         let e = { ...this.state }
         let p = { ...d }
         e["other"] = p;
+        e["other"].balance = d.balance;
         this.setState(e)
-        console.log("handling")
+        console.log(d)
+        console.log("handlump")
         console.log(this.state)
     }
     handler = (d) => {
@@ -32,7 +35,7 @@ export default class App extends Component {
         return (
             <Router>
                 <div>
-                    <Header/>
+                    <Header />
                     <Switch>
                         <Route exact path="/" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />
                         <Route path="/login" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />

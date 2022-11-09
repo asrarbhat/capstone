@@ -50,7 +50,7 @@ export default function FundTransferPage(props) {
             <form onSubmit={submit}>
                 <p>
                     <label>From Account</label>
-                    <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={ftdata.acc_number} id="account_number" />
+                    <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={props.state.accountNumber} id="account_number" disabled />
                 </p>
                 <p>
                     <label>Benificiary  Account</label>

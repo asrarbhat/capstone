@@ -37,10 +37,10 @@ export default function NewFD(props) {
         <div className="text-center m-5-auto">
             <h5>Open your new FD</h5>
             <form onSubmit={submit}>
-                <p>
+                {/* <p>
                     <label>From Account</label>
                     <input type="text" onChange={(e) => handle(e)} placeholder="Your Account number" value={fddata.acc_number} id="account_number" />
-                </p>
+                </p> */}
                 <p>
                     <label>FD Product Type</label>
                     <select id="fdtype">
