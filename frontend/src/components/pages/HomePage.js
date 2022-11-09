@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Table } from 'semantic-ui-react'
 import FundTransferPage from './FundTransfer';
 import NewFD from './NewFD';
+import Services from './Services';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 export default class HomePage extends Component {
@@ -60,6 +61,7 @@ export default class HomePage extends Component {
                         <Tab>Dashboard</Tab>
                         <Tab>Fund Transfer</Tab>
                         <Tab>Create FD</Tab>
+                        <Tab>Services</Tab>
                         <Tab>Logout</Tab>
                     </TabList>
                     <TabPanel>
@@ -74,6 +76,9 @@ export default class HomePage extends Component {
                     </TabPanel>
                     <TabPanel>
                         <NewFD state={this.props.state} handleset={this.props.handleset} />
+                    </TabPanel>
+                    <TabPanel>
+                        <Services state={this.props.state} handleset={this.props.handleset} />
                     </TabPanel>
                     <TabPanel>
                         <Link to="/login">LOGOUT</Link>

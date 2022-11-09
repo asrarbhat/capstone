@@ -6,6 +6,7 @@ import RegisterPage from './components/pages/RegisterPage'
 import HomePage from './components/pages/HomePage'
 import FundTransferPage from './components/pages/FundTransfer'
 import NewFD from './components/pages/NewFD'
+import Header from './Header'
 
 import './App.css'
 
@@ -31,6 +32,7 @@ export default class App extends Component {
         return (
             <Router>
                 <div>
+                    <Header/>
                     <Switch>
                         <Route exact path="/" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />
                         <Route path="/login" render={(props) => <LoginPage state={this.state.other} handleset={this.handleUpdate} trans={this.handler} />} />

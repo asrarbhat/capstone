@@ -6,6 +6,14 @@
     font-family: "Roboto", sans-serif;
     background-image: url("/src/assets/images/BgImage.jpg");
 }
+h1{
+    background-color: darkred;
+    font-size: 32px;
+    padding-top: 5px;
+    height: 50px;
+    color: yellow;
+    text-align: center;
+}
 
 body {
     margin: 0 auto;
